@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tiny Tweaks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>Navbar</nav>
+  <section class="columna1">Sección 1</section>
+</body>
+</html>
+/* Tiny Tweaks */
+.columna1 {
+  padding: 10px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .columna1 {
+    padding: 20px;
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 800px) {
+  .columna1 {
+    padding: 40px;
+    font-size: 2em;
+  }
+}
+
+
+
+**********************Termina Twiny tweaks**************************
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mostly Fluid</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>Navbar</nav>
+  <div class="container">
+    <section class="columna1">Sección 1</section>
+    <section class="columna2">Sección 2</section>
+    <section class="columna3">Sección 3</section>
+    <section class="columna4">Sección 4</section>
+    <section class="columna5">Sección 5</section>
+  </div>
+</body>
+</html>
+/* Mostly Fluid */
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.columna1,
+.columna2,
+.columna3,
+.columna4,
+.columna5 {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .columna2,
+  .columna3,
+  .columna4,
+  .columna5 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 800px) {
+  .columna1 { width: 60%; }
+  .columna2 { width: 40%; }
+  .columna3,
+  .columna4,
+  .columna5 {
+    width: 33.3%;
+  }
+
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+*********************************MostlyFluid*************
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Column Drop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>Navbar</nav>
+  <div class="container">
+    <section class="columna1">Sección 1</section>
+    <section class="columna2">Sección 2</section>
+    <section class="columna3">Sección 3</section>
+  </div>
+</body>
+</html>
+/* Column Drop */
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.columna1,
+.columna2,
+.columna3 {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .columna1 {
+    width: 60%;
+    -webkit-order: 2;
+    order: 2;
+  }
+
+  .columna2 {
+    width: 40%;
+    -webkit-order: 1;
+    order: 1;
+  }
+
+  .columna3 {
+    width: 100%;
+    -webkit-order: 3;
+    order: 3;
+  }
+}
+
+@media (min-width: 800px) {
+  .columna2,
+  .columna3 {
+    width: 20%;
+  }
+}
+
+
+******************************Column Drop*****************************************
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Shifter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>Navbar</nav>
+  <div class="container">
+    <section class="columna1">Sección 1</section>
+    <div class="container-inner">
+      <section class="columna2">Sección 2</section>
+      <section class="columna3">Sección 3</section>
+    </div>
+  </div>
+</body>
+</html>
+/* Layout Shifter */
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.columna1,
+.columna2,
+.columna3,
+.container-inner {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .columna1 {
+    width: 25%;
+    height: 100vh;
+  }
+
+  .container-inner {
+    width: 75%;
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+****************************Layout   Shifter****************************
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Off Canvas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>Navbar</nav>
+  <div class="container">
+    <section class="columna1">Sección 1</section>
+    <section class="columna2">Sección 2</section>
+  </div>
+</body>
+</html>
+Y el CSS vamos a verlo paso a paso
+
+En primer lugar, la columna 1 que será la que aparezca oculta, le damos un ancho fijo, y le añadimos un position: absolute.
+
+También le aplicamos una transición CSS a la transformación que vamos a declarar a continuación
+
+.columna1 {
+  position: absolute;
+  width: 250px;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  z-index: 1;
+}
+La transformación consiste en 2 fases. Para ocultar la capa, le aplicamos la transformación translate(-250px, 0) que lo que hace es "mover" la capa 250px hacia la izquierda en el eje X. Como el tamaño de la capa le hemos definido en 250px, quedará oculto
+
+También creamos una clase columna1 open que añadiremos con JavaScript más adelante. Esta clase "mueve" a la posición 0 del eje X la capa, lo que hace sea visible.
+
+Como hemos aplicado una transition este efecto será suave y otorga una mayor experiencia de usuario.
+
+.columna1 {
+  -webkit-transform: translate(-250px, 0);
+  transform: translate(-250px, 0);
+}
+
+.columna1.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0,0);
+}
+La columna 2 (central) no tiene mayor misterio. Queremos que ocupe el 100% del ancho y todo el alto de la página.
+
+.columna2 {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+Cuando la pantalla sea más ancha, vamos a aplicar al contenedor padre las propiedades de Flexbox. Esta vez el añadimos la propiedad nowrap que hace que el tamaño de ancho de los bloques de adapte en una sola fila, sin crear varias.
+
+Ahora la columna que estaba oculta, la sacamos a la luz, aplicando la transformación de translate(0,0)
+
+@media (min-width: 600px) {
+  .container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+
+  .columna1 {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+Muy bien, ahora es momento de aplicar magia con JavaScript. Queremos que al hacer el típico gesto de swipe en el móvil hacia la derecha, aparezca el menú off-canva, y al hacer el gesto contrario se oculte hacia la izquierda.
+
+Podemos usar los eventos nativos de JavaScript touchstart y touchmove pero el código puede quedar demasiado farragoso.
+Para solucinar esto tenemos la libreria Hammer.js que tiene programados los diferentes gestos que podemos usar en un teléfono o tablet.
+
+Para aplicar esto, lo primero que vamos a hacer es añadir unos id a los paneles en el HTML:
+
+<div class="container">
+  <section id="sidePanel" class="c1">Sección 1</section>
+  <section id="mainPanel" class="c2">Sección 2</section>
+</div>
+sidePanel será el panel off-canva y mainPanel será el panel principal.
+
+Añadimos también al HTML el script con la librería Hammer.js. Podemos usar una local descargada o un CDN como he puesto en el ejemplo.
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+Y a continuación añadimos el código que detectará los eventos swiperight cuando arrastremos el dedo hacia la derecha y swipeleft cuando lo hagamos al contrario. Estos eventos irán adjuntos al elemento mainPanel que será el que los escuche.
+
+Por tanto primero cacheamos los elementos sidePanel y mainPanel, y después se los añadimos a un objeto Hammer que lo gestionará.
+
+Cuando el evento ocurra, simplemente queremos que se añada la clase de CSS open al sidePanel en el caso de que no esté añadida, y si no que la quite. Esto lo conseguimos con la función de JS toggle. El código JS final sería así:
+
+(function(){
+  var mainPanel = document.getElementById('mainPanel');
+  var sidePanel = document.getElementById('sidePanel');
+
+  var hammerPanel = new Hammer(mainPanel);
+
+  hammerPanel
+    .on('swiperight', function(e) {
+      sidePanel.classList.toggle('open');
+    })
+    .on('swipeleft', function(e) {
+      sidePanel.classList.toggle('open');
+    });
+}());
+
+
+********************************Off Canvas/**************************************
