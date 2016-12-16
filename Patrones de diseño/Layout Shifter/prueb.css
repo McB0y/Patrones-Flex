@@ -1,0 +1,49 @@
+*{
+   margin: 0px;
+   padding: 0px;
+}
+ ul {
+   list-style: none;
+}
+
+.esp{
+   line-height: 2em;
+   font-size: 1em;
+}
+
+.container{
+   display: flex;
+   flex-flow: row wrap;
+}
+.col1,.col2,.col3{
+   width: 100%;
+}
+.col1{
+   background-color: rgb(242, 160, 63);
+}
+.col2{
+   background-color: rgb(242, 95, 63);
+}
+.col3{
+   background-color: rgb(233, 242, 63);
+}
+
+@media (min-width: 1200px) {
+
+.col1{
+   width: 30%;
+   height: 100vh;
+}
+.col2, .col3{
+   height: 50vh;
+}
+.col-inner{
+   width: 70%;
+   height: 100vh;
+}
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
