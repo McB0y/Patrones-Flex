@@ -317,3 +317,4 @@ Cuando el evento ocurra, simplemente queremos que se añada la clase de CSS open
 
 
 ********************************Off Canvas/**************************************
+Utilizado en proyecto termoplástico.
