@@ -116,7 +116,8 @@ jQuery.fn = jQuery.prototype = {
 
 	// The current version of jQuery being used
 	jquery: version,
-
+	
+	//No necesario para liberar a producción
 	constructor: jQuery,
 
 	// The default length of a jQuery object is 0
